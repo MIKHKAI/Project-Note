@@ -30,6 +30,9 @@ app.post('/add', async (req, res) => {
 
     await pool.query('INSERT INTO note SET name=?, text=?', [name, text], (err, result) => {
         if (err) throw err;
-    
+            pool.query('SELECT * FROM note', (err, results) => {
+                if (err) throw err;
+                    res.status(200).json(results);
+            });
     });
 })
