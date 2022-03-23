@@ -1,0 +1,17 @@
+{
+  "name": "project-note",
+  "version": "1.0.0",
+  "description": "note js, node js, onix",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "js",
+    "node",
+    "js",
+    "onix"
+  ],
+  "author": "MIKHAIL KAI",
+  "license": "ISC"
+}
