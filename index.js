@@ -48,8 +48,11 @@ app.delete('/remove/:id', async (req, res) => {
     FROM note WHERE id = ?`, id, (err, result_into) => {
         pool.query('DELETE FROM note WHERE id = ?', id, (err,result_del) => {
             if (err) throw err;
-                    
-        })
+                pool.query('SELECT * FROM note', (err, result) => {
+                    if (err) throw err;
+                        res.status(200).json(result);     
+                })
+            })
     })
 })
 
