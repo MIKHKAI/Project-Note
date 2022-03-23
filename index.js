@@ -43,10 +43,14 @@ app.post('/add', async (req, res) => {
 //Delete the selected entry
 app.delete('/remove/:id', async (req, res) => {
     let id = req.params.id;
-        await pool.query(`INSERT INTO note_two SELECT *
-        FROM note WHERE id = ?`, id, (err, result_into) => {
-        
+
+    await pool.query(`INSERT INTO note_two SELECT *
+    FROM note WHERE id = ?`, id, (err, result_into) => {
+        pool.query('DELETE FROM note WHERE id = ?', id, (err,result_del) => {
+            if (err) throw err;
+                    
         })
+    })
 })
 
 
