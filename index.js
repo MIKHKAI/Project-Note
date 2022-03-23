@@ -38,6 +38,13 @@ app.post('/add', async (req, res) => {
 })
 
 
+//Delete the selected entry
+app.delete('/remove/:id', async (req, res) => {
+    let id = req.params.id;
+    
+})
+
+
 app.listen(3000, () => {
     console.log('Server has started on port 3000...')
 });
