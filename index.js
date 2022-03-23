@@ -27,4 +27,9 @@ app.get('/',  async (req, res) => {
 app.post('/add', async (req, res) => {
     let name = req.body.dataF.name;
 	let text = req.body.dataF.text;
+
+    await pool.query('INSERT INTO note SET name=?, text=?', [name, text], (err, result) => {
+        if (err) throw err;
+    
+    });
 })
