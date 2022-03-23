@@ -14,6 +14,35 @@ submit.addEventListener('click', (e) => {
             formObj.forEach(function(value, key){
                 dataF[key] = value;
             });
-        }
-    
+            // ajaxSend(dataF)
+            fetch('/add', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({dataF})
+            }).then(res => res.json())
+            .then(data => {
+                form.reset()
+                const html = data.map(c => {
+                    return `
+                        <div class="panel">
+                        <div class="panel-head">
+                            <p class="panel-title">${c.name}</p>
+                        </div>
+                        <div class="panel-body">
+                            <p class="multi-line">${c.text}</p>
+                        
+                        </div>
+                        <div class="panel-footer w-panel-footer">
+                            <button class="panel-delet" name="${c.id}">
+                                Удалить
+                            </button>
+                        </div>
+                        </div>
+                    `
+                }).join('')
+                console.log(document.querySelector('.tbody'))
+                $card.querySelector('.tbody').innerHTML = html
+            })
+        .catch((err) => console.error(err))
+    }
 })
