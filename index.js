@@ -25,5 +25,6 @@ app.get('/',  async (req, res) => {
 
 //Add new record
 app.post('/add', async (req, res) => {
-
+    let name = req.body.dataF.name;
+	let text = req.body.dataF.text;
 })
