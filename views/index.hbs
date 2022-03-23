@@ -1,0 +1,54 @@
+{{> head}}
+
+<section id="card" class="container w-container">
+  <ul class="tabs" id="navigation">
+    <li><a class="tab active" href="#" data-name="create">СОЗДАНИЕ ЗАМЕТОК</a></li>
+  </ul>
+
+  <div class="loader-wrap hide" id="loader">
+    <div class="lds-ripple"><div></div><div></div></div>
+  </div>
+
+  <form  id="create">
+    <h1 class="h4">Создать новую заметку</h1>
+
+    <div class="form-control">
+      <label>Название</label>
+      <input type="text" name="name" placeholder="Введите название">
+    </div>
+
+    <div class="form-control">
+      <label>Текст</label>
+      <textarea name="text" placeholder="Введите текст заметки"></textarea>
+    </div>
+
+    <button
+      class="button-primary button-round button-shadow"
+      type="submit">
+      Создать
+    </button>
+  </form>
+  <div class="tbody">
+  {{#each result}}
+  <div id="posts">
+      <div class="panel">
+      <div class="panel-head">
+          <p class="panel-title">{{this.name}}</p>
+        
+        </div>
+        <div class="panel-body">
+          <p class="multi-line">{{this.text}}</p>
+        </div>
+        <div class="panel-footer w-panel-footer">
+          <button class="panel-delet" name="{{this.id}}">Удалить</button>
+        </div>
+      </div>
+  </div>
+  {{/each}}
+  </div>
+  <div id="favorite" class="hide"></div>
+
+</section>
+<script src="/app.js"></script>
+
+{{> footer}}
