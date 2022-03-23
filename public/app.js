@@ -46,3 +46,9 @@ submit.addEventListener('click', (e) => {
         .catch((err) => console.error(err))
     }
 })
+
+let $button = document.querySelector('.tbody');
+$button.addEventListener('click', (e) => {
+    if(e.target.tagName === 'BUTTON') {
+    }
+})
