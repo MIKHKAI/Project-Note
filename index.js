@@ -22,3 +22,8 @@ app.get('/',  async (req, res) => {
     })
    
 })
+
+//Add new record
+app.post('/add', async (req, res) => {
+
+})
