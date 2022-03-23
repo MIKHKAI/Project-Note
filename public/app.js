@@ -50,5 +50,11 @@ submit.addEventListener('click', (e) => {
 let $button = document.querySelector('.tbody');
 $button.addEventListener('click', (e) => {
     if(e.target.tagName === 'BUTTON') {
+        const form = document.querySelector('form')
+        e.preventDefault();
+
+        if (e.target.name === '' || e.target.name === null) {
+            return false
+        } 
     }
 })
